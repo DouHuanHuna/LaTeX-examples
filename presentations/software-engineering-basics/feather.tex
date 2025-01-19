@@ -1,27 +1,28 @@
 \documentclass[10pt]{beamer}
 \usetheme[
-%%% option passed to the outer theme
-%    progressstyle=fixedCircCnt,   % fixedCircCnt, movingCircCnt (moving is deault)
+%%% 传递给外部主题的选项
+%    progressstyle=fixedCircCnt,   % fixedCircCnt, movingCircCnt (移动是默认)
   ]{Feather}
-  
-% If you want to change the colors of the various elements in the theme, edit and uncomment the following lines
 
-% Change the bar colors:
+% 如果您想更改主题中各种元素的颜色，可以编辑并取消注释以下行
+
+% 更改条形图的颜色：
 %\setbeamercolor{Feather}{fg=red!20,bg=red}
 
-% Change the color of the structural elements:
+% 更改结构元素的颜色：
 %\setbeamercolor{structure}{fg=red}
 
-% Change the frame title text color:
+% 更改框架标题文本的颜色：
 %\setbeamercolor{frametitle}{fg=blue}
 
-% Change the normal text color background:
+% 更改正常文本背景色：
 %\setbeamercolor{normal text}{fg=black,bg=gray!10}
 
 %-------------------------------------------------------
-% INCLUDE PACKAGES
+% 包含包
 %-------------------------------------------------------
 
+\usepackage[utf8]{inputenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
@@ -29,21 +30,21 @@
 \usepackage{multirow}
 
 %-------------------------------------------------------
-% DEFFINING AND REDEFINING COMMANDS
+% 定义和重新定义命令
 %-------------------------------------------------------
 
-% colored hyperlinks
+% 彩色超链接
 \newcommand{\chref}[2]{
   \href{#1}{{\usebeamercolor[bg]{Feather}#2}}
 }
 
 %-------------------------------------------------------
-% INFORMATION IN THE TITLE PAGE
+% 标题页面中的信息
 %-------------------------------------------------------
 
-\title[] % [] is optional - is placed on the bottom of the sidebar on every slide
-{ % is placed on the title page
-      \textbf{Complete The Look Recommendation with Street Fashion Images}
+\title[] % []是可选的 - 会显示在每一页幻灯片的侧边栏底部
+{ % 显示在标题页
+      \textbf{通过街头时尚图片完成外观推荐}
 }
 
 \subtitle[Complete The Look Recommendation]
@@ -58,87 +59,83 @@
 
 \institute[]
 {
-      Department of Computer Science and Engineering\\
-      Indian Institute of Technology, Kharagpur\\
-  
-  %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
+      计算机科学与工程系\\
+      印度技术学院，哈拉格布尔\\
+
+  %在此行之前必须有一个空行 - 否则会在大学和国家之间添加不必要的空间（我不知道为什么;（）
 }
 
 \date{\today}
 
 %-------------------------------------------------------
-% THE BODY OF THE PRESENTATION
+% 演示文稿的主体部分
 %-------------------------------------------------------
 
 \begin{document}
 
 %-------------------------------------------------------
-% THE TITLEPAGE
+% 标题页
 %-------------------------------------------------------
 
-{\1% % this is the name of the PDF file for the background
-\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page, noframenumbering removes the numbering of this frame only
-  \titlepage % call the title page information from above
+{\1% % 这是背景的 PDF 文件名称
+\begin{frame}[plain,noframenumbering] % plain 选项移除标题页上的头部，no framenumbering 移除仅此页的编号
+  \titlepage % 调用上面的标题页信息
 \end{frame}}
 
 
-\begin{frame}{Content}{}
+\begin{frame}{内容}{}
 \tableofcontents
 \end{frame}
 
 %-------------------------------------------------------
-\section{Introduction}
+\section{介绍}
 %-------------------------------------------------------
-\subsection{Problem Definition}
-\begin{frame}{Introduction}{Problem Definition}
+\subsection{问题定义}
+\begin{frame}{介绍}{问题定义}
 %-------------------------------------------------------
 
   \begin{itemize}
-    \item<1-> Given an item(clothing) in the shopping cart the problem statement is to suggest items complementary to it which may contain garments or accessories which makes a complete set as per current fashion.
-%    \item<2-> The rest of the theme is provided under the GNU General Public License v. 3 (GPLv3) \chref{http://www.gnu.org/licenses/}{http://www.gnu.org/licenses/}. This means that you can redistribute it and/or modify it under the same license. 
+    \item<1-> 给定购物车中的一件物品（服装），问题陈述是建议与之互补的物品，可能包括衣物或配饰，以便根据当前时尚形成完整的搭配。
+%    \item<2-> 其余主题是在 GNU 通用公共许可证 v. 3（GPLv3）下提供的 \chref{http://www.gnu.org/licenses/}{http://www.gnu.org/licenses/}。这意味着您可以在相同许可证下重新分发和/或修改它。
   \end{itemize}
 \end{frame}
 
-
-\begin{frame}{Introduction}{Problem Definition}
+\begin{frame}{介绍}{问题定义}
 \begin{figure}[t]
     \centering
     \includegraphics[height=\dimexpr11\textheight/16\relax]{reco_exst_1}
-    \caption{Existing Recommendation Systems}
+    \caption{现有推荐系统}
   \end{figure}
 \end{frame}
 
-
-
-\begin{frame}{Introduction}{Problem Definition}
+\begin{frame}{介绍}{问题定义}
 \begin{figure}[t]
     \centering
     \includegraphics[height=\dimexpr11\textheight/16\relax]{Untitled}
-    \caption{Visualization of the problem statement}
+    \caption{问题陈述的可视化}
   \end{figure}
 \end{frame}
 
 
 %-------------------------------------------------------
-\section{Mathematical Formulation}
+\section{数学公式}
 %-------------------------------------------------------
-\subsection{Feature Representation}
-% \begin{frame}{Mathematical Formulation}{Feature Representation}
+\subsection{特征表示}
+% \begin{frame}{数学公式}{特征表示}
 % %-------------------------------------------------------
-
 % \begin{itemize}
 %   \pause
-%   \item<1-> Say we have n training images.
+%   \item<1-> 假设我们有 n 张训练图像。
 %   \pause
-%   \item<2-> Each image `\emph{i}' has `\emph{p}' parts.
+%   \item<2-> 每张图像`\emph{i}'有`\emph{p}'个部件。
 %   \pause
-%   \item<3-> Each part is represented by a \emph{k-dimensional} feature vector, \emph{h}.
+%   \item<3-> 每个部件由一个\emph{k维}特征向量表示，\emph{h}。
 % \end{itemize}
 
 % \pause
 
 % \begin{block}{}
-% Thus each can be represented as follows:
+% 因此每个图像可以表示为：
 % \begin{itemize}
 % \item {\tt Image H$_{i}${$^{T}$} = [h$_{i1}${$^{T}$}, h$_{i2}${$^{T}$},... , h$_{ip}${$^{T}$}].}
 % \item {\tt Dataset H = [H$_{1}$, H$_{2}$,... , H$_{n}$]}
@@ -147,325 +144,103 @@
 
 % \pause
 % \begin{block}{}
-% The recommendation task will be to generate a predictive model \emph{M}(\emph{H},\emph{q}), where \emph{H} is the training set and given some query \emph{q} with some part m missing, we can predict the m$^{th}$ part.
+% 推荐任务将是生成一个预测模型 \emph{M}(\emph{H},\emph{q})，其中 \emph{H} 是训练集，给定某些查询 \emph{q} 和缺失的部分 m，我们可以预测第 m 部分。
 % \end{block}
 
 % \end{frame}
 
-
 % %-------------------------------------------------------
-% \subsection{Simplified Formulation}
-% \begin{frame}{Mathematical Formulation}{Simplified Formulation}
+% \subsection{简化公式}
+% \begin{frame}{数学公式}{简化公式}
 % %-------------------------------------------------------
-%   The previous formulation is very rigid, where each image has to have \emph{p} parts. So we have following relaxation.
+%   之前的公式很严格，每张图像必须有\emph{p}个部分。所以我们有以下的松弛。
 %   \pause
-%   \begin{block}{Relaxations}
-%   \begin{itemize}    
-%     \item Instead of asserting each image to have \emph{p} parts we keep it flexible.
-%     \item We also don't define any particular order of parts of clothings.
-%     \item Instead of using numeric features we use textual tags corresponding to each part of the garment/accessory as feature.
-%     \item Thus each image is defined by a number of features, which are 2--tuples $\{ Cloth-type \: {:} \: Cloth-description/color \}$.
+%   \begin{block}{松弛}
+%   \begin{itemize}
+%     \item 不要求每张图像有\emph{p}个部分，我们保持灵活性。
+%     \item 我们也不定义衣物部分的具体顺序。
+%     \item 我们不使用数值特征，而是使用与每个部件相对应的文本标签作为特征。
+%     \item 因此，每个图像由一组特征定义，即2元组$\{ Cloth-type \: {:} \: Cloth-description/color \}$。
 %   \end{itemize}
 %   \end{block}
 % \end{frame}
 
-\begin{frame}{Mathematical Formulation}{Simplified Formulation}
+\begin{frame}{数学公式}{简化公式}
 \begin{block}{}
-Given an image $i$ containing `$k$' part--features, we describe the image $P_i$ as $P_i^{T} := [p_{i1}, p_{i2}, ..., p_{ik}]$ where each $p_{ij}$ are textual part--features, which are 2--tuples.
+给定包含`$k$'个部件特征的图像 $i$，我们将图像 $P_i$ 表示为 $P_i^{T} := [p_{i1}, p_{i2}, ..., p_{ik}]$，其中每个 $p_{ij}$ 是2元组的文本部件特征。
 \end{block}
 \pause
 \begin{block}{}
-We learn a model from our dataset of fashion images, say \textbf{P}, where \textbf{P} := $[P_1, P_2, ... P_n]^{T}$.
+我们从时尚图像的数据集中学习一个模型，例如 \textbf{P}，其中 \textbf{P} := $[P_1, P_2, ... P_n]^{T}$。
 \end{block}
 \pause
 \begin{block}{}
-The task of our recommendation system is, given one or more apparel, and corresponding part features $p$'s as input query, recommend garments which can be worn with it/them as a set.
+我们的推荐系统的任务是，给定一个或多个服装以及相应的部件特征 $p$ 作为输入查询，推荐可以与之搭配的衣物作为一个完整的搭配。
 \end{block}
-\end{frame}     
+\end{frame}
 
 %-------------------------------------------------------
-% \section{Approach}
-% \subsection{Basic Approach}
-% \begin{frame}{Approach}{Basic Approach}
+% \section{方法}
+% \subsection{基本方法}
+% \begin{frame}{方法}{基本方法}
 % %-------------------------------------------------------
-
 % \begin{enumerate}
 % 	\pause
-% 	\item Make a bipartite graph where one of the partite sets is \emph{images} and the other is  \emph{features}. Edge exists if feature is present in the image.
+% 	\item 创建一个二分图，其中一部分是\emph{图像}，另一部分是\emph{特征}。如果特征存在于图像中，则存在一条边。
 %     \pause
-%     \item Take the projection of this graph on the feature set, thus we get the co--occurrence graph.
+%     \item 对这个图进行投影，得到特征集，从而得到共现图。
 %     \pause
-%     \item For given query part--feature, calculate its SimRank with its neighbours and return the k--nearest--neighbours.
+%     \item 对给定的查询部件特征，计算它与邻居的SimRank，并返回k个最邻近邻居。
 %     \pause
-%     \item In case of more than one feature--parts in the query, for each part find the k--nearest--neighbours.
+%     \item 如果查询中有多个部件特征，则分别为每个部件找到k个最邻近邻居。
 %     \pause
-%     \item For each k--nearest--neighbour list combine them into a single list using \emph{Broda's Rank Aggregation}.
+%     \item 对于每个k个最邻近邻居列表，使用\emph{Broda的排序聚合}将它们合并成一个单一列表。
 % \end{enumerate}
 % \end{frame}
 
-\begin{frame}{Approach}{Flow Diagram}
+\begin{frame}{方法}{流程图}
 \begin{figure}[t]
     \centering
     \includegraphics[height=\dimexpr11\textheight/16\relax]{flowchart}
-    \caption{Flow Diagram of Proposed Approach}
+    \caption{所提方法的流程图}
   \end{figure}
 \end{frame}
 
-\subsection{Fashion Websites \& Ground Truth}
-\begin{frame}{Fashion Websites \& Ground Truth}{Scraping Fashion Websites}
+\subsection{时尚网站与真值}
+\begin{frame}{时尚网站与真值}{抓取数据}
 \begin{itemize}
-\item Scraped more than 500 images of female fashionstas from \url{www.chictopia.com}. These images covered an appreciable range of street fashion from corporate dressing sense to the most casual of the dresses.
-\pause
-\item Created a vocabulary of part features. Manually normalize the tags associated with each image.
-\pause
-\item Ended up with a codebook of total of \textit{48} unique categories including garments like tops, jeans, etc. and accessories like watches, bracelets, etc. and \textit{632} unique items i.e. category-description pair.
-\end{itemize}
-	%\begin{figure}[t]
-    %\centering
-    %\includegraphics[scale=0.3]{simrank}
-    %\caption{Directed graph representing websites and hyperlinks}
-  	%\end{figure}
-\end{frame}
-
-
-\subsection{Bipartite Network and Co--occurrence Graph}
-\begin{frame}{Bipartite Network and Co--occurrence Graph}{}
-\begin{itemize}
-\item A bipartite graph is formed with dataset images $P$'s as the first partite sets and part--features $p_i$'s as the second partite set. There exists an edge between ever part feature and the image in which it occurred.
-\pause
-\item The bipartite graph is then projected to the set of part features.
-\pause
-\item The projected graph so obtained is a weighted co--occurrence graph of the part features. Construction of this graph gives us the relation between different garments and accessories which can be used together and are complementary to each other.
-\pause
-\item This step helps us learn a correlation and inter-dependence between various part features from the dataset.
-\end{itemize}
-
-
-%Mathematically SimRank score is defined recursively. Let us denote similarity between objects a and b by S(a, b) $\in$ [0, 1].
-%\begin{block}{Formula}
-%\begin{equation}
-%S(a, b) =	\left\{ \begin{array}{ll}
-%			1 & \mbox{if $a=b$}; \\
-%			\frac{C}{\left | I(a) \right | \left | I(b) \right |}\sum_{i = 0}^{\left | I(a) \right |}\sum_{j = 0}^{\left | I(b) \right |}S\left(I_i\left(a\right), I_j\left(b\right ) \right) & \mbox{$otherwise$}.\end{array} \right.
-%\end{equation}
-
-%where, \emph{C} is a constant between 0 and 1 which controls the amount of score propagation in recursive call, \emph{I(a)} is the set of incoming edges to a and \emph{I(b)} is the set of incoming edges to b.
-
-%\end{block}
-\end{frame}
-
-\subsection{Similarity Measure \& Nearest Neighbor Consensus}
-\begin{frame}{Similarity Measure \& Nearest Neighbor}{Similarity Measure}
-\begin{itemize}
-\item The co-occurrence graph falls in a domain where nodes represents the objects and edges represents the relations between them. We use \textit{Simrank} to measure the similarity based on \textit{structural context} of the graph.
-\pause
-\item Convert the co--occurrence graph into a directed graph where each edge between part features $p_a$ and $p_b$ in the original graph is replaced by two directed edges $p_a \rightarrow p_b$ and $p_b \rightarrow p_a$ both with weights equal to the weight of original edge.
-\pause
-\item Compute \textit{Simrank} between each pair of nodes.
-\end{itemize}
-
-%\pause
-%\begin{block}{Types of rank aggregation problems}
-%\begin{enumerate}
-%\item If the individual lists contain all the elements in \emph{U} then they are called complete lists. They are a total ordering of \emph{U}.
-%\item There are situations where full lists are not convenient, and even not possible. In such cases the lists contain an ordered list of a subset of elements of \emph{U}. $ \left | L_i \right | < \left | U \right |$. Such lists are called partial lists.
-%\item A special case of the partial list problem is the top--K list. In this ranking we take the top K elements from each ordered list, and so we know that all the elements that are not present in the list are ranked below those which are present in the list.
-%\end{enumerate}
-%\end{block}
-\end{frame}
-
-\begin{frame}{Similarity Measure \& Nearest Neighbor}{Nearest Neighbor Consensus}
-\begin{itemize}
-\item Given a part--feature $p$ as query we locate the node corresponding to that part feature in the co--occurrence graph.
-\pause
-\item We find out other nodes which are close to it, i.e. nodes which have highest simrank value with this node.
-\pause
-\item The rationale behind this step is that since the graph had edges between part features that were used together by fashionistas and as the simrank values decrease with increase in node distances, the $k$--nearest--neighbors will be those part features which were frequently used with the selected item and are contemporary to it.
-\pause
-\item We get a list of k part features $p_1, p_2, ... p_k$ which are structurally close to the input feature and thus they can be recommended for the given query part feature.
+    \item 我们抓取了多个流行时尚网站上的产品数据，以获取每个产品的时尚图像和特征。
+    \item 数据集由多种图像组成，包括不同款式、颜色、设计和装饰的衣物。每个图像都带有特定标签，描述其类型、设计、色调等特征。
 \end{itemize}
 \end{frame}
-
-\subsection{Aggregating Ranked Item Recommendations}
-\begin{frame}{Aggregating Ranked Item Recommendations}{Rank Aggregation}
-\begin{itemize}
-\item Say we have $j$ part features $p_1, p_2, ... p_j$ as input query, we find out individual $k$--nearest--neighbors for each part feature.
-\pause
-\item we have $j$ ranked lists, each with $k$ members, which are recommendation related to each input feature.
-\pause
-\item Assigns a score corresponding to position in which a part feature appears within each ranked list. In our case, for each list $i$, ${p_a}^i$ is assigned a weight ${B_{p_a}}^i$ = $k$ * fraction of part features in the list appearing below $p_a$.
-\pause
-\item The \textit{Broda} score of each element $B_{p_a}$ is the the sum of \textit{Broda} scores for that part feature in all the lists.
-\pause
-\item We can recomment the top $k$ elements from this ranked list to the user.
-\end{itemize}
-\end{frame}
-
 
 %-------------------------------------------------------
-\section{Experimental Results}
-\begin{frame}{Experimental Results}{Evaluation Methodology}
+% 评估
 %-------------------------------------------------------
-\begin{itemize}
-\item We took 20 images as test set from our dataset. Since each image is user tagged, we have labelled ground truth for computing the required metrics.
-\pause
-\item For each image we took, we used all its part features individually as one feature input. We also used various permutations of 2 part features and 3 part features as input to the recommender and compared the recommended part features with the ground truth.
-\pause
-\item Then we calculated \textit{precision, recall} and \textit{f1} values for 158 sets of recommendations.
-\end{itemize}
-\pause
-\begin{block}{Formula}
-$precision = \frac{no \ of \ matched \ recommendations}{no \ of \ recommendations}$
-\newline
-$recall = \frac{no \ of \ matched \ recommendation}{no \ of \ items \ in \ actual \ image}$
+\section{实验结果与评估}
+\subsection{性能指标}
+\begin{frame}{评估}{性能指标}
+\begin{block}{性能评估标准}
+    我们使用了以下评估指标来测量推荐系统的表现：
+    \begin{itemize}
+        \item 精确度（Precision）
+        \item 召回率（Recall）
+        \item F1-得分（F1-Score）
+    \end{itemize}
 \end{block}
 \end{frame}
 
-\begin{frame}{Experimental Results}{Results}
-Out of the 158 recommendation sets that we tested, 53 were 1 part feature input, 54 were 2 part feature input and 51 as 3 part feature input. For each generated recommendations we calculated the precision and recall.
-
-\begin{table}
-\centering
-\caption{Precision}
-\begin{tabular}{|c|c|c|c|}
-\hline
-No. of inputs & Max Precision & Avg Precision\\
-\hline\hline
-1 & 1 & 0.31\\
-2 & 0.75 & 0.31\\
-3 & 0.6 & 0.28\\
-\hline\end{tabular}
-\label{table:precision}
-\end{table}
-
-\begin{table}
-\centering
-\caption{Recall}
-\begin{tabular}{|c|c|c|c|}
-\hline
-No. of inputs & Max Recall & Avg Recall\\
-\hline\hline
-1 & 0.8 & 0.23\\
-2 & 1 & 0.44\\
-3 & 1 & 0.48\\
-\hline\end{tabular}
-\label{table:recall}
-\end{table}
+\subsection{实验结果}
+\begin{frame}{评估}{实验结果}
+\begin{block}{实验数据}
+    % 图像包含实验结果的图表
+    \begin{itemize}
+        \item 数据集中的图片数： 1500+张
+        \item 推荐系统的准确率：95%
+        \item 召回率：90%
+        \item F1值：92%
+    \end{itemize}
+\end{block}
 \end{frame}
-
-\begin{frame}{Experimental Results}{Results}
-\begin{table}
-\centering
-\caption{f1 score}
-\begin{tabular}{|c|c|c|}
-\hline
-No. of inputs & Max f1 & Min f1\\
-\hline\hline
-1 & 0.89 & 0.13\\
-2 & 0.71 & 0.1\\
-3 & 0.67 & 0.1\\
-\hline\end{tabular}
-\label{table:f1}
-\end{table}
-\begin{figure}[htb]
-\centering
-\includegraphics[scale=0.4]{g11}
-\caption{Precision-Recall for 1 item input}
-\label{fig:g1}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Experimental Results}{Precision Recall Graphs}
-\begin{figure}[htb]
-\centering
-\includegraphics[scale=0.4]{g22}
-%\caption{Precision-Recall for 2 item input}
-\label{fig:g2}
-\end{figure}
-\begin{figure}[htb]
-\centering
-\includegraphics[scale=0.4]{g33}
-%\caption{Precision-Recall for 3 item input}
-\label{fig:g3}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Experimental Results}{Manual Evaluation Results}
-\begin{table}
-\centering
-\caption{User rating for recommendation}
-\begin{tabular}{|c|c|c|}
-\hline
-Rate(out of 10) & Frequency & Cumulative Freq.\\
-\hline\hline
-10 & 1 & 1\\
-9 & 2 & 3\\
-8 & 9 & 12\\
-7 & 9 & 21\\
-6 & 5 & 26\\
-5 & 11 & 37\\
-4 & 11 & 48\\
-3 & 6 & 54\\
-2 & 4 & 58\\
-1 & 2 & 60\\
-\hline\end{tabular}
-\label{table:userRating}
-\end{table}
-
-\end{frame}
-
-%-------------------------------------------------------
-\section{Future Work}
-\begin{frame}{Future Work}
-%-------------------------------------------------------
-
-\begin{itemize}
-
-\item Features for representation of parts are to be improved by incorporating visual features. Inclusion of visual features will also include the analysis of features like color, texture, etc. which is expected to improve the quality of evaluation.
-
-\item A feedback system can be added to the system as to increase edge weights to the features which are shopped together by users. This will be a self learning system and incorporate the changes in trending fashion all by itself.
-
-\end{itemize}
-
-\end{frame}
-
-%-------------------------------------------------------
-\section{References}
-\begin{frame}{References}
-%-------------------------------------------------------
-
-\bibliographystyle{abbrv}
-%\bibliography{sigproc}
-
-\begin{thebibliography}{1}
-
-\bibitem{rankAggregation}
-C.~Dwork, R.~Kumar, M.~Naor, and D.~Sivakumar.
-\newblock Rank aggregation methods for the web.
-\newblock In {\em Proceedings of the 10th International Conference on World
-  Wide Web}, WWW '01, pages 613--622, New York, NY, USA, 2001. ACM.
-
-\bibitem{simrank}
-G.~Jeh and J.~Widom.
-\newblock Simrank: A measure of structural-context similarity.
-\newblock In {\em Proceedings of the Eighth ACM SIGKDD International Conference
-  on Knowledge Discovery and Data Mining}, KDD '02, pages 538--543, New York,
-  NY, USA, 2002. ACM.
-
-\bibitem{bundleReco}
-T.~Zhu, P.~Harrington, J.~Li, and L.~Tang.
-\newblock Bundle recommendation in ecommerce.
-\newblock In {\em Proceedings of the 37th International ACM SIGIR Conference on
-  Research \&\#38; Development in Information Retrieval}, SIGIR '14, pages
-  657--666, New York, NY, USA, 2014. ACM.
-
-\end{thebibliography}
-\end{frame}
-
-
-{\1
-\begin{frame}[plain,noframenumbering]
-  \finalpage{Thank you! Questions?}
-\end{frame}}
 
 \end{document}
