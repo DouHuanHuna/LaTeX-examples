@@ -1,19 +1,19 @@
 \documentclass[hyperref={pdfpagelabels=false},usepdftitle=false]{beamer}
 \usepackage{../templates/myStyle}
-
+\usepackage{ctex}
 \begin{document}
 \selectlanguage{english}
 
 \title{\titleText}
-\subtitle{History of searching and the PageRank algorithm}
+\subtitle{搜索历史与PageRank算法}
 \author{\tutor}
-\date{7th of February, 2013}
-%\subject{Programmieren}
+\date{2013年2月7日}
+%\subject{编程}
 
 \frame{\titlepage}
 
 \frame{
-    \frametitle{Contents}
+    \frametitle{目录}
     \setcounter{tocdepth}{1}
     \tableofcontents
     \setcounter{tocdepth}{2}
@@ -23,16 +23,16 @@
 %    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
 %}
 
-\section{Introduction}
+\section{介绍}
 \input{introduction}
 
 \section{PageRank}
 \input{PageRank}
 
-\section{End}
+\section{结束}
 \input{end}
 \input{wrapup}
 \input{sources}
-\framedgraphic{Thanks for Your Attention!}{../images/Teach-yourself-C++-in-21-days.png}
+\framedgraphic{感谢您的关注！}{../images/Teach-yourself-C++-in-21-days.png}
 
 \end{document}

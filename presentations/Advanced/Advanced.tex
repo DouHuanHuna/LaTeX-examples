@@ -1,63 +1,64 @@
+
 \documentclass{beamer}
 \usetheme{Frankfurt}
 \usecolortheme{default}
 \usepackage{hyperref}
-\usepackage[utf8]{inputenc} % this is needed for german umlauts
-\usepackage[english]{babel} % this is needed for german umlauts
-\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[utf8]{inputenc} % 这是为了使用德语变音符号
+\usepackage[english]{babel} % 这是为了使用德语变音符号
+\usepackage[T1]{fontenc}    % 这是为了在pdf中正确输出变音符号
 
 \begin{document}
 
-\title{The title of your presentation}
-\subtitle{A subtitle}
+\title{你的演示文稿标题}
+\subtitle{副标题}
 \author{Martin Thoma}
-\date{25. March 2013}
-\subject{Computer Science}
+\date{2013年3月25日}
+\subject{计算机科学}
 
 \frame{\titlepage}
 
-% Show table of contents
+% 显示目录
 \frame{
-    \frametitle{Contents}
+    \frametitle{目录}
     \setcounter{tocdepth}{1}
     \tableofcontents
     \setcounter{tocdepth}{2}
 }
 
 %\AtBeginSection[]{
-%    \InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+%    \InsertToC[sections={\thesection}]  % 仅显示一个小节的子子节
 %}
 
-\section{Introduction}
-\subsection{A subsection!}
-\begin{frame}{Slide title}
-    Slide content
+\section{介绍}
+\subsection{一个小节！}
+\begin{frame}{幻灯片标题}
+    幻灯片内容
 \end{frame}
 
-\begin{frame}{Another title}
-    Some text\\
-    \uncover<2->{Uncover me on slide 2 (-)\\}
-    \visible<3->{visible from slide 3 on (-)\\}
-    \only<4->{only from slide 4 (-)\\}
-    \onslide<5->{on slide 5 and further (-)\\}
-    \uncover<6>{Uncover me on slide 6 \\}
-    \visible<7>{visible on 7\\}
-    \only<8>{only on slide 8 \\}
-    \alt<8>{I am on slide 8\\}{I am not on slide 8\\}
-    \onslide<9>{on slide 9\\}
+\begin{frame}{另一个标题}
+    一些文本\\
+    \uncover<2->{在第2页幻灯片上显示我 (-)\\}
+    \visible<3->{从第3页幻灯片开始可见 (-)\\}
+    \only<4->{仅在第4页幻灯片上 (-)\\}
+    \onslide<5->{在第5页及以后显示 (-)\\}
+    \uncover<6>{在第6页幻灯片上显示我 \\}
+    \visible<7>{在第7页可见\\}
+    \only<8>{仅在第8页幻灯片上 \\}
+    \alt<8>{我在第8页幻灯片上\\}{我不在第8页幻灯片上\\}
+    \onslide<9>{在第9页幻灯片上\\}
 \end{frame}
 
-\begin{frame}{Third title}
-    \begin{block}{Title}
-        This is a block.
+\begin{frame}{第三个标题}
+    \begin{block}{标题}
+        这是一个块。
     \end{block}
 
-    \begin{exampleblock}{my Title}
-        This is an example block.
+    \begin{exampleblock}{我的标题}
+        这是一个示例块。
     \end{exampleblock}
 
-    \begin{alertblock}{another Title}
-        This is an alert block.
+    \begin{alertblock}{另一个标题}
+        这是一个警告块。
     \end{alertblock}
 \end{frame}
 

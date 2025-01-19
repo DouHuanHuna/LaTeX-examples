@@ -1,101 +1,98 @@
-\subsection{How can we use this massive amout of information?}
-\begin{frame}{How can we use this massive amout of information?}
+\subsection{我们如何利用这些海量信息？}
+\begin{frame}{我们如何利用这些海量信息？}
     \begin{itemize}[<+->]
-        \item 625.3 million websites
-        \item Wikipedia is one website and has several millions of pages
-        \item[$\Rightarrow$] we need to rank websites!
+        \item 6.253亿个网站
+        \item 维基百科是一个网站，拥有数百万个页面
+        \item[$\Rightarrow$] 我们需要对网站进行排名！
     \end{itemize}
 \end{frame}
 
-\subsection{Idea}
-\begin{frame}{Basics of PageRank}
-    We all know that:
+\subsection{想法}
+\begin{frame}{PageRank的基础}
+    我们都知道：
     \begin{itemize}[<+->]
-        \item humans know what is good for them
-        \item[\xmark] machines don't know what's good for humans
-        \item humans create websites
-        \item humans will only \href{http://en.wikipedia.org/wiki/Hyperlink}{link} to websites they like
-        \item[$\Rightarrow$] hyperlinks are a quality indicator
+        \item 人类知道什么对他们有好处
+        \item[\xmark] 机器不知道什么对人类有好处
+        \item 人类创建网站
+        \item 人类只会\href{http://en.wikipedia.org/wiki/Hyperlink}{链接}他们喜欢的网站
+        \item[$\Rightarrow$] 超链接是质量的指标
     \end{itemize}
 \end{frame}
 
-\begin{frame}{How Could We Use That?}
+\begin{frame}{我们如何利用这一点？}
     \begin{itemize}[<+->]
-        \item simply count number of links to a website
-        \item[\xmark] 10,000 links from only one page
-        \item count number of websites that link to a website
-        \item[\xmark] quality of the linking website matters
-        \item[\xmark] total number of links on the source page matters
+        \item 简单地计算链接到一个网站的数量
+        \item[\xmark] 仅来自一个页面的10,000个链接
+        \item 计算链接到一个网站的网页数量
+        \item[\xmark] 链接网站的质量很重要
+        \item[\xmark] 源页面上的总链接数很重要
     \end{itemize}
 \end{frame}
 
-\framedgraphic{A Brilliant Idea}{../images/BrinPage.jpg}
+\framedgraphic{一个聪明的想法}{../images/BrinPage.jpg}
 
-\begin{frame}{Ideas of PageRank}
+\begin{frame}{PageRank的想法}
     \begin{itemize}[<+->]
-        \item decisions of humans are complicated
-        \item a lot of webpages get visited
-        \item[$\Rightarrow$] modellize clicks on links as random behaviour
-        \item links are important
+        \item 人类的决策是复杂的
+        \item 许多网页被访问
+        \item[$\Rightarrow$] 将点击链接建模为随机行为
+        \item 链接很重要
         \begin{itemize}
-            \item links of page A get less important, if A has many links
-            \item links of page A get more important, if many link to A
+            \item 如果A有很多链接，A的链接变得不那么重要
+            \item 如果很多人链接到A，A的链接变得更重要
         \end{itemize}
-        \item[$\Rightarrow$] if B has a link from A, the rank of B increases by $\frac{Rank(A)}{Links(A)}$
+        \item[$\Rightarrow$] 如果B有来自A的链接，B的排名增加$\frac{Rank(A)}{Links(A)}$
     \end{itemize}
 
     \pause[\thebeamerpauses]
 
     \begin{algorithmic}
-        \If{A links to B}
+        \If{A链接到B}
             \State $Rank(B)$ += $\frac{Rank(A)}{Links(A)}$
         \EndIf
     \end{algorithmic}
 \end{frame}
 
-\begin{frame}{What is PageRank?}
-    The PageRank algorithm calculates the probability of a randomly
-    clicking user ending up on a given page.
+\begin{frame}{什么是PageRank？}
+    PageRank算法计算随机点击用户最终到达给定页面的概率。
 \end{frame}
 
 \input{Animation}
 
-%\begin{frame}{Ants}
+%\begin{frame}{蚂蚁}
 %    \begin{itemize}[<+->]
-%        \item Websites = nodes = anthill
-%        \item Links = edges = paths
-%        \item You place ants on each node
-%        \item They walk over the paths
-%        \item[] (at random, they are ants!)
-%        \item After some time, some anthills will have more ants than
-%              others
-%        \item Those hills are more attractive than others
-%        \item \# ants is probability that a random user would end on
-%              a website
+%        \item 网站 = 节点 = 蚁丘
+%        \item 链接 = 边 = 路径
+%        \item 你在每个节点上放置蚂蚁
+%        \item 它们在路径上行走
+%        \item[] （随机地，它们是蚂蚁！）
+%        \item 一段时间后，一些蚁丘会有比其他蚁丘更多的蚂蚁
+%        \item 那些蚁丘比其他蚁丘更有吸引力
+%        \item 蚂蚁的数量是随机用户最终到达网站的概率
 %    \end{itemize}
 %\end{frame}
 
-\begin{frame}{Mathematics}
-    Let $x$ be a web page. Then
+\begin{frame}{数学}
+    设$x$为一个网页。那么
     \begin{itemize}
-        \item $L(x)$ is the set of websites that link to $x$
-        \item $C(y)$ is the out-degree of page $y$
-        \item $\alpha$ is probability of random jump
-        \item $N$ is the total number of websites
+        \item $L(x)$是链接到$x$的网站集合
+        \item $C(y)$是页面$y$的出度
+        \item $\alpha$是随机跳转的概率
+        \item $N$是网站的总数
     \end{itemize}
 
     \[\displaystyle PR(x) := \alpha \left ( \frac{1}{N} \right ) + (1-\alpha) \sum_{y\in L(x)} \frac{PR(y)}{C(y)}\]
 \end{frame}
 
-\begin{frame}{Pseudocode}
+\begin{frame}{伪代码}
         \begin{algorithmic}
-\alertline<1>             \Function{PageRank}{Graph $web$, double $q=0.15$, int $iterations$} %q is a damping factor
+\alertline<1>             \Function{PageRank}{Graph $web$, double $q=0.15$, int $iterations$} %q是阻尼因子
 %\alertline<2>                 \ForAll{$page \in web$}
-%\alertline<3>                     \State $page.pageRank = \frac{1}{|web|}$ \Comment{intial probability}
+%\alertline<3>                     \State $page.pageRank = \frac{1}{|web|}$ \Comment{初始概率}
 %\alertline<2>                 \EndFor
 
 \alertline<2>                 \While{$iterations > 0$}
-\alertline<3>                     \ForAll{$page \in web$} \Comment{calculate pageRank of $page$}
+\alertline<3>                     \ForAll{$page \in web$} \Comment{计算$page$的PageRank}
 \alertline<4>                         \State $page.pageRank = q$
 \alertline<5>                         \ForAll{$y \in L(page)$}
 \alertline<6>                             \State $page.pageRank$ += $\frac{y.pageRank}{C(y)}$
